@@ -7,5 +7,33 @@
 </head>
 <body>
     <h1>Soru 1</h1>
+    <span>1' den 99'a kadar olan sayıları for dongüsü ile yanyana</span>
+    <button id="siralaBtn" onclick="sirala()">Sırala</button>
+    <br>
+    <button id="rastgeleBtn" disabled onclick="rastgeleSec()">Rastgele sayı seç</button>
+    <div id="sonuç"></div>
+    <div id="rastgeleSonuç"></div>
+
+    <script>
+        function sirala() {
+            var sonucEl = document.getElementById("sonuç");
+            var rastgeleBtn = document.getElementById("rastgeleBtn");
+            var sıralaBtn = document.getElementById("siralaBtn");
+            for (var i = 1; i <= 99; i++) {
+                sonucEl.innerHTML += i + " ";
+                if (i % 10 === 0) {
+                    sonucEl.innerHTML += "<br>";
+                }
+            }
+            rastgeleBtn.disabled = false;
+            sıralaBtn.disabled = true;
+        }
+
+        function rastgeleSec() {
+            var rastgeleSayi = Math.floor(Math.random() * 99) + 1;
+            var rastgeleSonucEl = document.getElementById("rastgeleSonuç");
+            rastgeleSonucEl.innerHTML = "Rastgele seçilen sayı: " + rastgeleSayi;
+        }
+    </script>
 </body>
 </html>
